@@ -1,0 +1,35 @@
+.container{
+    margin: 0 auto;
+    padding: 20px, 1px;
+    /* border: 2px solid white; */
+}
+/* MAIN */
+.background{
+    background-image: url('../assets/istockphoto-1354077790-170667a.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 660px;
+    padding-top: 400px;
+    padding-left: 30px;
+}
+body{
+    background: black;
+    
+}
+/* SOBRE */
+
+.card-mini{
+    padding: 20px 15px;
+    text-align: center;
+    color: #828590;
+    background: #ffffff;
+    border-radius: 6px;
+    transition: .3s;
+    max-width: 271px;
+    height: 275px;
+}
+.title{
+    border-bottom: 1px solid #828590;
+}
+
