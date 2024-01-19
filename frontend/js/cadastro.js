@@ -36,44 +36,47 @@ document.addEventListener('DOMContentLoaded', function() {
             const cep1= form.elements.cep1.value
         
             
-        const JsonData = formDataJSON(nome1, sobrenome1, email1, senha1, cnpj1, endereco1, complemento1, cidade1, estado1, cep1);
+            const JsonData = formDataJSON(nome1, sobrenome1, email1, senha1, cnpj1, endereco1, complemento1, cidade1, estado1, cep1);
 
-        const axiosConfig = {headers: {'Content-Type': 'application/json'}};
+            const axiosConfig = {headers: {'Content-Type': 'application/json'}};
 
-        try {
-            const resp = await axios.post(url2 + "/cadastrar", JsonData, axiosConfig);
+            try {
+                const resp = await axios.post(url2 + "/cadastrar", JsonData, axiosConfig);
 
+            
+                if(resp.data && resp.data !== ""){
 
-            if(resp.data && resp.data !== ""){
+                    const emailData = {
 
-                const emailData = {
+                        to: email1,
+                        subject: "Olá "+ nome1,
+                        body: "Bem vindo(a) "+ nome1 +" ao Banco Alpha É um pazer ter você aqui conosco!"
+                    }
+                    
 
-                    to: "bancoalpha@gmail.com",
-                    subject: "Bem Vindo ao Banco Alpha",
-                    body: "É um PRAZER TER VOCÊ AQUI!"
+                    await axios.post('http://localhost:8080/email/recebido', emailData)
+                    .then(function (response) {
+                        console.log(response.data);
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    })
+
+                    alert("Bem Vindo ao Banco Alpha, "+ nome1)
+                    window.location.href = "login.html";
+
+                    
+                }else {
+                    alert("Erro ao cadastrar!");
                 }
                 
 
-                await axios.post('http://localhost:8080/email/recebido', emailData)
-                .then(function (response) {
-                    console.log(response.data);
-                  })
-                  .catch(function (error) {
-                    console.error(error);
-                  })
-
-                alert("Bem Vindo ao Banco Alpha!")
-                window.location.href = "login.html";
+            } catch (error) {
+                alert("Erro ao cadastrar")
                 
-            }else {
-                alert("Erro ao cadastrar!");
             }
-            
 
-        } catch (error) {
-            alert("Erro ao cadastrar")
             
-        }
         
        
     });

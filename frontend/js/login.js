@@ -30,8 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (response.data && response.data !== "") {
 
-            
                 window.location.href = "usuario.html"
+
+                
 
             } else {
                 alert("Erro nas credenciais ou Campo vazio!");
