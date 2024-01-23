@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function formDataLoginJSON(emailLogin, senhaLogin){
 
         let formatedLoginData = {
-
+            
             email: emailLogin,
             senha: senhaLogin
             
@@ -32,9 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 window.location.href = "usuario.html"
 
-                
+                console.log(usuarioLogado) 
 
             } else {
+
+                
                 alert("Erro nas credenciais ou Campo vazio!");
             }
             
@@ -44,3 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
            }
     });
 });
+// async function buscar(){
+//     await axios.get(`http://localhost:8080/usuario/buscarEmail/${email}`)
+//     .then(function (response) {
+//     console.log(response.data);
+//     })
+//     .catch(function (error) {
+//     console.error(error);
+//     })
+// }
+// buscar()

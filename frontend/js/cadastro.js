@@ -34,17 +34,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const cidade1= form.elements.cidade1.value
             const estado1= form.elements.estado1.value
             const cep1= form.elements.cep1.value
-        
+
             
             const JsonData = formDataJSON(nome1, sobrenome1, email1, senha1, cnpj1, endereco1, complemento1, cidade1, estado1, cep1);
 
             const axiosConfig = {headers: {'Content-Type': 'application/json'}};
 
+            
+
             try {
                 const resp = await axios.post(url2 + "/cadastrar", JsonData, axiosConfig);
 
+                
             
                 if(resp.data && resp.data !== ""){
+
+                   
 
                     const emailData = {
 
@@ -62,24 +67,35 @@ document.addEventListener('DOMContentLoaded', function() {
                         console.error(error);
                     })
 
+                    localStorage.setItem('usuarioLogado', JsonData)
+
+                    let quardarUsuarios = []
+                    quardarUsuarios.push(quardarUsuarios)
+                    console.log(quardarUsuarios)
+
+
                     alert("Bem Vindo ao Banco Alpha, "+ nome1)
                     window.location.href = "login.html";
+
+                    
 
                     
                 }else {
                     alert("Erro ao cadastrar!");
                 }
+
+                // localStorage.setItem('usuarioLogado', JsonData)
                 
 
             } catch (error) {
+                console.error("Erro ao cadastrar:", error);
                 alert("Erro ao cadastrar")
                 
             }
-
-            
-        
        
     });
+    
+    
 });
 
 

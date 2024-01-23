@@ -56,12 +56,11 @@
             </div>
             <ul class="navbar-nav" id="botaoSair">
               <li class="nav-item">
-                <a
+                <button
                   class="btn btn-outline-secondary rounded-pill"
                   type="button"
-                  href="/index.html"
-                  >Sair</a
-                >
+                  onclick='sair()'
+                  >Sair</button>
               </li>
             </ul>
           </div>
@@ -71,12 +70,10 @@
       <section class="main info_section layout_padding2">
         
         <div class="background container-xl text-white">
-          <form action="" id="user">
             <h1 class="ui-banner-title mt-3 text-white" id="logado" >
-          </h1>
-        </form>
-          
+            </h1>
         </div>
+        <button onclick="buscar()"></button>
 
         <div class="container-xl" id="novidades">
           <div class="container-xl mt-5">
@@ -85,13 +82,13 @@
           <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="assets/cadastro.jpg" class="d-block w-100" alt="cadastro">
+                <img src="assets/carousel1.avif" class="d-block w-100" alt="cadastro">
               </div>
               <div class="carousel-item">
-                <img src="assets/images.jpeg" class="d-block w-100" alt="Login">
+                <img src="assets/carousel2.avif" class="d-block w-100" alt="Login">
               </div>
               <div class="carousel-item">
-                <img src="assets/imgLogin.avif" class="d-block w-100" alt="Inicio">
+                <img src="assets/carousel3.jpg" class="d-block w-100" alt="Inicio">
               </div>
             </div>
           </div>
@@ -239,9 +236,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+    
     <script src="js/usuario.js"></script>
-   
+    
   </body>
 </html>
 
