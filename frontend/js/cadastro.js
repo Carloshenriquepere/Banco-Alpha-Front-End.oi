@@ -40,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const axiosConfig = {headers: {'Content-Type': 'application/json'}};
 
-            
 
             try {
                 const resp = await axios.post(url2 + "/cadastrar", JsonData, axiosConfig);
@@ -67,35 +66,23 @@ document.addEventListener('DOMContentLoaded', function() {
                         console.error(error);
                     })
 
-                    localStorage.setItem('usuarioLogado', JsonData)
-
-                    let quardarUsuarios = []
-                    quardarUsuarios.push(quardarUsuarios)
-                    console.log(quardarUsuarios)
-
-
+                
                     alert("Bem Vindo ao Banco Alpha, "+ nome1)
                     window.location.href = "login.html";
 
                     
-
-                    
+                
                 }else {
                     alert("Erro ao cadastrar!");
                 }
 
-                // localStorage.setItem('usuarioLogado', JsonData)
                 
-
             } catch (error) {
                 console.error("Erro ao cadastrar:", error);
                 alert("Erro ao cadastrar")
                 
             }
-       
-    });
-    
-    
+    });   
 });
 
 

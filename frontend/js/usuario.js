@@ -1,12 +1,11 @@
 
 
-let usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado')) 
+let usuarioLogado = localStorage.getItem('usuarioLogado') 
 
 if (usuarioLogado) {
-    console.log(usuarioLogado);
-
+    
     let logado = document.querySelector('#logado');
-    logado.innerHTML = `Olá ${usuarioLogado.nome}`;
+    logado.innerHTML = `Olá ${usuarioLogado[0].nome}`;
 
     let tokenArray = new Uint8Array(16);
     crypto.getRandomValues(tokenArray);
@@ -16,20 +15,13 @@ if (usuarioLogado) {
 } else {
     console.error("Usuário não está logado.");
 }
-
-let quardarUsuarios = []
-
+    let quardar = [];
+    quardar.push(usuarioLogado)
 
 
 function sair() {
-    if (localStorage.getItem('token')) {
-        quardarUsuarios.push(usuarioLogado)
-        console.log("Guardardando Usuarios: ",quardarUsuarios)
-        localStorage.removeItem('token');
-        localStorage.removeItem('ususarioLogado');
-        window.location.href = "login.html";
-    } else {
-        console.error("Usuário não autenticado.");
-    }
+    localStorage.removeItem('usuarioLogado');
+    localStorage.removeItem('token');
+    window.location.href = "login.html";
 }
        

@@ -21,22 +21,35 @@ document.addEventListener('DOMContentLoaded', function() {
         
            const url1 = `http://localhost:8080/usuario/login?email=${emailLogin}&senha=${senhaLogin}`
 
+           const url3 = `http://localhost:8080/usuario/buscarEmail/${emailLogin}`;
+
            const axiosConfigLogin = {headers: {'Content-Type': 'application/json'}};
 
 
 
            try {
             const response = await axios.get(url1, axiosConfigLogin);
+
+            console.log(response.data)
+            console.log(response.data)
             
             if (response.data && response.data !== "") {
 
+                axios.get(url3)
+                .then(resp => {
+                    localStorage
+                    .setItem('usuarioLogado',JSON.stringify(resp.data))
+                    console.log(resp.data)
+                })
+                
+
                 window.location.href = "usuario.html"
 
-                console.log(usuarioLogado) 
-
             } else {
-
                 
+
+
+
                 alert("Erro nas credenciais ou Campo vazio!");
             }
             
@@ -46,13 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
            }
     });
 });
-// async function buscar(){
-//     await axios.get(`http://localhost:8080/usuario/buscarEmail/${email}`)
-//     .then(function (response) {
-//     console.log(response.data);
-//     })
-//     .catch(function (error) {
-//     console.error(error);
-//     })
-// }
-// buscar()
+
+function entrar(){
+}
